@@ -10,6 +10,8 @@ import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/Profile";
 import IconButton from "./components/UI/IconButton";
 import { Global_Styles } from "./constants/colors";
+import AuthenticationScreen from "./screens/AuthenticationScreen";
+import AnimeDetaiScreen from "./screens/AnimeDetailScreen";
 
 const Tabs = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -97,6 +99,12 @@ export default function App() {
               presentation: "modal",
             }}
           />
+          <Stack.Screen
+            name="Authentication"
+            component={AuthenticationScreen}
+            options={{ presentation: "modal" }}
+          />
+          <Stack.Screen name="AnimeDetails" component={AnimeDetaiScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
