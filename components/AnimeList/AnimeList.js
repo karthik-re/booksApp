@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Global_Styles.primary500,
+    backgroundColor: Global_Styles.primary300,
   },
   fallbackText: {
     fontSize: 24,
