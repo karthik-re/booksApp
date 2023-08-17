@@ -18,3 +18,18 @@ export const formatDateRange = (startDate, endDate) => {
 
   return `${formattedStart} - ${formattedEnd}`;
 };
+
+export const secondsToMinutesAndSeconds = (seconds) => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  const formattedTime =
+    (hours > 0 ? `${hours} Hour${hours !== 1 ? "s" : ""} ` : "") +
+    (minutes > 0 ? `${minutes} Minute${minutes !== 1 ? "s" : ""}` : "") +
+    (remainingSeconds > 0
+      ? ` ${remainingSeconds} Second${remainingSeconds !== 1 ? "s" : ""}`
+      : "");
+
+  return formattedTime.trim();
+};

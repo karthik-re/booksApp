@@ -16,8 +16,8 @@ const AnimeList = ({ list }) => {
     );
   }
 
-  const pressHandler = (id) => {
-    navigation.navigate("AnimeDetails", { id: id });
+  const pressHandler = (item) => {
+    navigation.navigate("AnimeDetails", { id: item.id, title: item.title });
   };
 
   return (
@@ -28,7 +28,7 @@ const AnimeList = ({ list }) => {
         renderItem={(itemData) => (
           <AnimeListItem
             data={itemData.item}
-            onPress={pressHandler.bind(this, itemData.item.id)}
+            onPress={pressHandler.bind(this, itemData.item)}
           />
         )}
         style={styles.list}

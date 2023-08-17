@@ -104,7 +104,16 @@ export default function App() {
             component={AuthenticationScreen}
             options={{ presentation: "modal" }}
           />
-          <Stack.Screen name="AnimeDetails" component={AnimeDetaiScreen} />
+          <Stack.Screen
+            name="AnimeDetails"
+            component={AnimeDetaiScreen}
+            options={{
+              headerTransparent: true,
+              headerStyle: {
+                backgroundColor: "transparent",
+              },
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
