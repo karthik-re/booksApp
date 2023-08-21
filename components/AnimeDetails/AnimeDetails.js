@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { View, StyleSheet, Animated, Dimensions } from "react-native";
 
 import { Global_Styles } from "../../constants/colors";
@@ -9,17 +9,23 @@ import TitleContainer from "./TitleContainer";
 import Information from "./Information";
 import Related from "./Related";
 import Recommendations from "./Recommendations";
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 const BANNER_H = 450;
 
 const AnimeDetails = ({ data }) => {
   const scrollA = useRef(new Animated.Value(0)).current;
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
+  }, [data.id]);
 
   return (
     <>
       <View style={styles.container}>
         <Animated.ScrollView
+          ref={scrollRef}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: scrollA } } }],
             { useNativeDriver: true }

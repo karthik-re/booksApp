@@ -56,6 +56,10 @@ const AnimeOverview = () => {
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="ios-search" color={color} size={size} />
           ),
+          headerTransparent: true,
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
         }}
       />
       <Tabs.Screen

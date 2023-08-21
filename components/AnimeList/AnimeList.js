@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     margin: 24,
+    marginBottom: 1,
   },
   fallbackContainer: {
     flex: 1,
