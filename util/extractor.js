@@ -1,4 +1,5 @@
 import { secondsToMinutesAndSeconds } from "./date";
+import { formatDateRange } from "./date";
 
 export const extractAnimeData = (data) => {
   const {
@@ -78,4 +79,20 @@ export const extractAnimeData = (data) => {
   };
 
   return reData;
+};
+
+export const extractAnimeListData = (data) => {
+  const list = data.map((entry) => ({
+    id: entry.node.id,
+    title: entry.node.title,
+    img_medium: entry.node.main_picture.medium,
+    rank: entry.node.rank,
+    mean: entry.node.mean,
+    num_of_mean: entry.node.num_scoring_users.toLocaleString(),
+    popularity: entry.node.popularity,
+    num_episodes: entry.node.num_episodes,
+    period: formatDateRange(entry.node.start_date, entry.node.end_date),
+  }));
+
+  return list;
 };
