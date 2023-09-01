@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  LayoutAnimation,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Global_Styles } from "../../constants/colors";
 
@@ -9,6 +15,7 @@ const Synopsis = ({ synopsis }) => {
   const [showFull, setShowFull] = useState(false);
 
   const toggleSynopsis = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setShowFull(!showFull);
   };
 

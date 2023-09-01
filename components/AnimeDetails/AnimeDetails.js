@@ -1,5 +1,11 @@
 import { useEffect, useRef } from "react";
-import { View, StyleSheet, Animated, Dimensions } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Animated,
+  Dimensions,
+  LayoutAnimation,
+} from "react-native";
 
 import { Global_Styles } from "../../constants/colors";
 import MainHeader from "../UI/MainHeader";
@@ -18,7 +24,8 @@ const AnimeDetails = ({ data }) => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    scrollRef.current.scrollTo({ x: 0, y: 0, animated: true });
+    scrollRef.current.scrollTo({ x: 0, animated: true });
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
   }, [data.id]);
 
   return (
