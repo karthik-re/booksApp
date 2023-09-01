@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  LayoutAnimation,
+} from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useState } from "react";
 
@@ -10,6 +16,7 @@ const Information = ({ data }) => {
   const [showFull, setShowFull] = useState(false);
 
   const toggleSynopsis = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setShowFull(!showFull);
   };
 
@@ -21,7 +28,7 @@ const Information = ({ data }) => {
         onPress={toggleSynopsis}
         style={styles.miniTitleContainer}
       >
-        <Text style={styles.text}>Information: </Text>
+        <Text style={styles.text}>Broadcast Information: </Text>
         {showFull ? (
           <Feather
             name="chevrons-up"
